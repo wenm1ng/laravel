@@ -20,4 +20,5 @@ Route::get('/', function () {
 Route::group(['namespace'=>'Home'],function(){
 	Route::any('/user/register','UserController@register');
 	Route::post('/user/check_test','UserController@check_test');
+	Route::post('/user/send_email','UserController@send_email');
 });
