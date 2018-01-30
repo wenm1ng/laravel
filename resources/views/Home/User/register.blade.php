@@ -58,7 +58,11 @@ $(function(){
         <div class="conlist">
             <div class="conbox" style="display:block;">
                 <p>
-                    <div class="fl res-text">用户名：</div><div><input type="text" name="username" placeholder="请输入邮箱" class="loginuser username"></div>
+                    <div class="fl res-text">用户名：</div><div><input type="text" name="username" placeholder="请输入用户名" class="loginuser username"></div>
+                    <div class="veri"></div>
+                </p>
+                <p>
+                    <div class="fl res-text">邮箱：</div><div><input type="text" name="eamil" placeholder="请输入邮箱" class="loginuser email"></div>
                     <div class="veri"></div>
                 </p>
                 <p>
@@ -83,6 +87,10 @@ $(function(){
             <div class="conbox">
             	  <p>
                     <div class="fl res-text">用户名：</div><div><input type="text" name="username" placeholder="请输入邮箱" class="loginuser username"></div>
+                    <div class="veri"></div>
+                </p>
+                <p>
+                    <div class="fl res-text">邮箱：</div><div><input type="text" name="eamil" placeholder="请输入邮箱" class="loginuser email"></div>
                     <div class="veri"></div>
                 </p>
                 <p>
@@ -113,25 +121,54 @@ $(function(){
   $('.username').on('focus',function(){
     $(this).parent().next().html('');
   }).blur(function(){
-    var uPattern = /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
+    var uPattern = /(?=.*[0-9].*)(?=.*[A-Z].*)(?=.*[a-z].*).{10,20}$/;
     if(uPattern.test($(this).val())){
+      //验证用户名是否已存在
+      that = $(this);
+      $.ajax({
+        type:'POST',
+        url:'/user/check_test',
+        data:{type:2},
+        headers:{'X-CSRF-TOKEN':$('meta[name="_token"]').attr('content')},
+        success:function(data){
+
+        },
+        error:function(data){
+
+        }
+      });
+    }else{
+      $(this).parent().next().append('<span style="color:red">用户名必须为10到20位大小写字母、数字组成</span>');
+    }
+  });
+
+
+  $('.email').on('focus',function(){
+    $(this).parent().next().html('');
+  }).blur(function(){
+    var uPattern = /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
+    var email = $(this).val();
+    if(uPattern.test(email)){
       //验证邮箱是否存在
       that = $(this);
       $.ajax({
         type:'POST',
-        url:'/User/check_test',
-        data:{type:1},
+        url:'/user/check_test',
+        data:{type:1,email:email},
         headers:{'X-CSRF-TOKEN':$('meta[name="_token"]').attr('content')},
         success:function(data){
-          alert(data);
-          // that.parent().next().append('<span style="color:green">邮箱用户名可用</span>');
+          if(data.status){
+            that.parent().next().append('<span style="color:green">'+data.msg+'</span>');
+          }else{
+            that.parent().next().append('<span style="color:red">'+data.msg+'</span>');
+          }
         },
         error:function(data){
-          // that.parent().next().append('<span style="color:red">该邮箱用户名已被使用</span>');
+          that.parent().next().append('<span style="color:red">服务器繁忙，请稍后再试</span>');
         }
       })
     }else{
-      $(this).parent().next().append('<span style="color:red">请输入正确的邮箱用户名</span>');
+      $(this).parent().next().append('<span style="color:red">请输入正确的邮箱</span>');
     }
   });
 </script>
