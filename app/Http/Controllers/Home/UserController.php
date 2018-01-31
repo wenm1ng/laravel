@@ -10,7 +10,7 @@ use Mail;
 Class UserController extends PublicController{
 	public function register(Request $request){
 		if($request->isMethod('post')){
-
+			print_r($request->all());
 		}else{
 			return view('Home.User.register');
 		}

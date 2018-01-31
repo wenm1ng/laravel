@@ -87,7 +87,7 @@ $(function(){
                   </p>
                   <p>
                       <!-- <a herf="#" class="loginbtn" value="注 册" target-form="form-1"> -->
-                      <input type="button" class="loginbtn" value="注 册">
+                      <input type="button" class="loginbtn" value="注 册" target-form="form-1">
                   </p>
                 </form>
             </div>
@@ -290,7 +290,19 @@ $(function(){
     if(first_input && second_input && third_input && fourth_input && fiveth_input){
       var form = $(this).attr('target-form');
       var data = $('.'+form).serialize();
-      alert(data);
+      
+      $.ajax({
+        type:'POST',
+        url:'/user/register',
+        data:{data:data},
+        headers:{'X-CSRF-TOKEN':$('meta[name="_token"]').attr('content')},
+        success:function(data){
+          alert(data);
+        },
+        error:function(data){
+          alert(2);
+        }
+      });
     }
   })
 </script>
