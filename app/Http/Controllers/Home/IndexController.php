@@ -9,7 +9,8 @@ use Mail;
 use Hash;
 
 Class IndexController extends PublicController{
-	public function index(){
+	public function index(Request $request){
+		print_r($request->session()->get('user_info')->login_name);
 		return view('Home.Index.index');
 	}
 }

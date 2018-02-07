@@ -52,19 +52,19 @@ Class UserController extends PublicController{
 					return array('status'=>0,'msg'=>'该用户名已被使用！');
 				}
 				break;
-			case '3':
-				//用户登录，验证账号密码
-				$user_info = DB::table('user')->where('login_name','=',$request->username)->first();
-				if($user_info){
-					if(Hash::check($request->password,$user_info->password)){
-						return array('status'=>1);
-					}else{
-						return array('status'=>0);
-					}
-				}else{
-					return array('status'=>0);
-				}
-				break;
+			// case '3':
+			// 	//用户登录，验证账号密码
+			// 	$user_info = DB::table('user')->where('login_name','=',$request->username)->first();
+			// 	if($user_info){
+			// 		if(Hash::check($request->password,$user_info->password)){
+			// 			return array('status'=>1);
+			// 		}else{
+			// 			return array('status'=>0);
+			// 		}
+			// 	}else{
+			// 		return array('status'=>0);
+			// 	}
+			// 	break;
 			default:
 				# code...
 				break;
@@ -92,7 +92,19 @@ Class UserController extends PublicController{
 
 	public function login(Request $request){
 		if($request->isMethod('post')){
-
+			//用户登录，验证账号密码
+			$user_info = DB::table('user')->where('login_name','=',$request->username)->first();
+			if($user_info){
+				if(Hash::check($request->password,$user_info->password)){
+					//写入用户信息到session
+					session(['user_info'=>$user_info]);
+					return array('status'=>1);
+				}else{
+					return array('status'=>0);
+				}
+			}else{
+				return array('status'=>0);
+			}
 		}else{
 			return view('Home.User.login');
 		}

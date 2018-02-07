@@ -47,15 +47,17 @@ $(function(){
         <div class="fr">您好，欢迎为生活充电在线！</div>
     </div>
 </div>
-<div class="l_main2" style="height:700px">
+<div class="l_main2" style="height:780px">
     <div class="l_bttitle"> 
         <h2>注册</h2>
+        <!-- <h2><a href="/index">< 返回首页</a></h2> -->
     </div>
     <div class="loginbox">
         <div class="tab">
             <ul>
-                <li class="on">我是买家</li>
-                <li>我是卖家</li>
+                <li class="on">欢迎注册</li>
+                <span style="display:block;height:40px;line-height:40px">已有账号，现在就&nbsp;&nbsp;<a href="/user/login">登录</a></span>
+                <!-- <li>我是卖家</li> -->
             </ul>
         </div>
         <div class="conlist">

@@ -47,7 +47,7 @@ $(function(){
 <div class="l_main">
     <div class="l_bttitle2"> 
         <!-- <h2>登录</h2>-->
-        <h2><a href="#">< 返回首页</a></h2>
+        <h2><a href="/index">< 返回首页</a></h2>
     </div>
     <div class="loginbox fl">
         <div class="tab">
@@ -97,13 +97,14 @@ $(function(){
 
 		$.ajax({
 			'type':'post',
-			'url':'/user/check_test',
-			'data':{username:username,password:password,type:3},
+			'url':'/user/login',
+			'data':{username:username,password:password},
 			'headers':{'X-CSRF-TOKEN':$('meta[name="csrf_token"]').attr('content')},
 			'success':function(data){
 				// console.log(data);
 				if(data.status){
-					location.href = '/index';
+					//登录
+                    location.href = '/index';
 				}else{
 					//提示信息
 					that.html('');

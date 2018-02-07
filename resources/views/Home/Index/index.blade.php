@@ -16,7 +16,10 @@
  <div id="header_top">
   <div id="top">
     <div class="Inside_pages">
-      <div class="Collection"><a href="#" class="green">请登录</a> <a href="#" class="green">免费注册</a></div>
+      <div class="Collection">
+      	<a href="/user/login" class="green">请登录</a>
+      	<a href="/user/register" class="green">免费注册</a>
+      </div>
 	<div class="hd_top_manu clearfix">
 	  <ul class="clearfix">
 	   <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">首页</a></li> 
