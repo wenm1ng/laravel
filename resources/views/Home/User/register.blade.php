@@ -294,7 +294,7 @@ $(function(){
       $.ajax({
         type:'POST',
         url:'/user/register',
-        data:{data:data},
+        data:data,
         headers:{'X-CSRF-TOKEN':$('meta[name="_token"]').attr('content')},
         success:function(data){
           alert(data);
