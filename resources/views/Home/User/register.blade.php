@@ -67,7 +67,7 @@ $(function(){
                       <div class="veri"></div>
                   </p>
                   <p>
-                      <div class="fl res-text">邮箱：</div><div><input type="text" name="eamil" placeholder="请输入邮箱" class="loginuser email"></div>
+                      <div class="fl res-text">邮箱：</div><div><input type="text" name="email" placeholder="请输入邮箱" class="loginuser email"></div>
                       <div class="veri"></div>
                   </p>
                   <p>
@@ -100,7 +100,7 @@ $(function(){
                       <div class="veri"></div>
                   </p>
                   <p>
-                      <div class="fl res-text">邮箱：</div><div><input type="text" name="eamil" placeholder="请输入邮箱" class="loginuser email"></div>
+                      <div class="fl res-text">邮箱：</div><div><input type="text" name="email" placeholder="请输入邮箱" class="loginuser email"></div>
                       <div class="veri"></div>
                   </p>
                   <p>
@@ -294,10 +294,14 @@ $(function(){
       $.ajax({
         type:'POST',
         url:'/user/register',
-        data:{data:data},
+        data:data,
         headers:{'X-CSRF-TOKEN':$('meta[name="_token"]').attr('content')},
         success:function(data){
-          alert(data);
+          if(data.status){
+            location.href = '/page/index';
+          }else{
+            location.href = '/page/not_found';
+          }
         },
         error:function(data){
           alert(2);
