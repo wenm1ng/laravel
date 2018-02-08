@@ -8,11 +8,14 @@ use DB;
 use Mail;
 use Hash;
 
-public function login(Request $request){
-	if($request->isMethod('post')){
+Class UserController extends PublicController{
+	Public function login(Request $request){
+		if($request->isMethod('post')){
 
-	}else{
-		return view('Admin.User.login');
+		}else{
+			return view('Admin.User.login');
+		}
 	}
 }
+
  ?>

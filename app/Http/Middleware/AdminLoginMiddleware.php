@@ -16,10 +16,10 @@ class AdminLoginMiddleware
     public function handle($request, Closure $next)
     {
         //判断是否登录
-        if($request->session()->has('id')){
+        if($request->session()->has('admin_info')){
             return $next($request);
         }else{
-            return redirect('/home/login');
+            return redirect('/admin/login');
         }
     }
 }

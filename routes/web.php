@@ -35,7 +35,8 @@ Route::group(['namespace'=>'Home'],function(){
 
 //后台路由
 Route::group(['namespace'=>'Admin'],function(){
+	Route::any('/admin/login','UserController@login');
 	Route::group(['middleware'=>'admin_login'],function(){
-		Route::any('/user/login','UserController@login');
+		
 	});
 });
