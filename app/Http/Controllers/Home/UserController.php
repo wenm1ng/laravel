@@ -17,6 +17,7 @@ Class UserController extends PublicController{
 			$data['password'] 		= Hash::make($request->password);
 			$data['create_time'] 	= date('Y-m-d H:i:s');
 			$data['update_time']	= date('Y-m-d H:i:s');
+			$data['user_name']		= rand_name();
 
 			$id = Db::table('user')->insertGetId($data);
 
@@ -90,6 +91,7 @@ Class UserController extends PublicController{
 		});
 	}
 
+	//登录
 	public function login(Request $request){
 		if($request->isMethod('post')){
 			//用户登录，验证账号密码
@@ -108,6 +110,12 @@ Class UserController extends PublicController{
 		}else{
 			return view('Home.User.login');
 		}
+	}
+
+	public function logout(Request $request){
+		$request->session()->forget('user_info');
+
+		return back();
 	}
 }
  ?>
