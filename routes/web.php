@@ -37,6 +37,8 @@ Route::group(['namespace'=>'Home'],function(){
 Route::group(['namespace'=>'Admin'],function(){
 	Route::any('/admin/login','UserController@login');
 	Route::group(['middleware'=>'admin_login'],function(){
-		
+		Route::get('/admin/index','IndexController@index');
+		Route::get('/admin/user/index','UserController@index');
+		Route::any('/admin/user/addinfo','UserController@addinfo');
 	});
 });

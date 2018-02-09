@@ -25,9 +25,9 @@
 <body>
      @if(session('error'))
            <div id="mws-container" class="clearfix">
-            <div class="container" style="margin-left:575px">
-              <div class="mws-form-message danger">
-                     {{session('error')}}
+            <div class="container">
+              <div class="mws-form-message danger" style="margin:0 auto">
+                    <span>{{session('error')}}</span>
                </div>
              </div>
           </div>
@@ -38,7 +38,7 @@
             <div class="mws-login-lock"><i class="icon-lock"></i></div>
             <div id="mws-login-form">
                 
-                <form class="mws-form" action="/admin/dologin" method="post">
+                <form class="mws-form" action="/admin/login" method="post">
                     <div class="mws-form-row">
                         <div class="mws-form-item">
                             <input type="text" name="username" class="mws-login-username required" placeholder="用户名" value="{{old('username')}}">
@@ -81,4 +81,9 @@
     <script src="/Admin/b/js/core/login.js"></script>
 
 </body>
+<script>
+    $("#mws-container").click(function(){
+        $(this).toggle();
+    })
+</script>
 </html>
