@@ -40,5 +40,6 @@ Route::group(['namespace'=>'Admin'],function(){
 		Route::get('/admin/index','IndexController@index');
 		Route::get('/admin/user/index','UserController@index');
 		Route::any('/admin/user/addinfo','UserController@addinfo');
+		Route::get('/admin/classify/index','ClassifyController@index');
 	});
 });

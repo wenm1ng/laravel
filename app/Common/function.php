@@ -9,4 +9,19 @@
 
 		return $name;
 	}
+
+	//错误日志记录
+    function log_error($name, $text , $path) {
+    	if(!file_exists($path)){
+    		mkdir($path);
+    	}
+
+    	if(!file_exists($path."/" . date("Y-m-d") . "/")){
+    		mkdir($path."/" . date("Y-m-d") . "/");
+    	}
+    	
+    	$myfile = fopen($path."/" . date("Y-m-d") . "/" . $name . ".txt", "a+") or die("Unable to open file!");
+        fwrite($myfile, $text . "---------" . date("Y-m-d G:i:s") . "\r\n");
+        fclose($myfile);
+    }
  ?>

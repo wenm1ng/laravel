@@ -1,0 +1,1 @@
+[{"query":"insert into `lv_admin` (`login_name`, `password`, `is_super`, `email`, `status`, `create_time`, `update_time`) values (?, ?, ?, ?, ?, ?, ?)","bindings":["aaaa","$2y$10$cwa7JAxFpLmJCXjwkNVbkemEEc\/siPUVNmAYUKqSZNvwct2Q795ii","0","11@qq.com",1,"2018-02-11 07:15:20","2018-02-11 07:15:20"],"time":406.02}]---------2018-02-11 7:15:20

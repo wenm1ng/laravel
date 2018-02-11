@@ -9,3 +9,11 @@ body {
 
 a {
 }
+
+.cursor:hover{
+	cursor:pointer;
+}
+
+.margin-40{
+	margin-left:40px;
+}

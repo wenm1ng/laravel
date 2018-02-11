@@ -1,7 +1,7 @@
 <?php
 
 define('LARAVEL_START', microtime(true));
-
+define('LOG_PATH','../log');
 /*
 |--------------------------------------------------------------------------
 | Register The Composer Auto Loader

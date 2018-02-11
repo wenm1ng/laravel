@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta name="description" content="Xenon Boostrap Admin Panel" />
 	<meta name="author" content="" />
-	
+	<meta name="_token" content="{{csrf_token()}}">
 	<title>@yield('title')</title>
 
 	
@@ -22,6 +22,7 @@
 
 	<script src="/Admin/assets/js/jquery-1.11.1.min.js"></script>
 	<script src="/js/common.js"></script>
+	<script src="/layer/layer.js"></script>
 	<!--头部script*************************************-->
 	@yield('headscript')
 	<!--头部script*************************************-->
@@ -30,7 +31,6 @@
 		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
-	
 	
 </head>
 <body class="page-body">
@@ -218,92 +218,17 @@
 									<span class="title">用户列表</span>
 								</a>
 							</li>
-							<li>
-								<a href="dashboard-3.html">
-									<span class="title">Dashboard 3</span>
-								</a>
-							</li>
-							<li>
-								<a href="dashboard-4.html">
-									<span class="title">Dashboard 4</span>
-								</a>
-							</li>
-							<li>
-								<a href="skin-generator.html">
-									<span class="title">Skin Generator</span>
-								</a>
-							</li>
 						</ul>
 					</li>
 					<li>
 						<a href="layout-variants.html">
 							<i class="linecons-desktop"></i>
-							<span class="title">Layouts</span>
+							<span class="title">分类管理</span>
 						</a>
 						<ul>
 							<li>
-								<a href="layout-variants.html">
-									<span class="title">Layout Variants &amp; API</span>
-								</a>
-							</li>
-							<li>
-								<a href="layout-collapsed-sidebar.html">
-									<span class="title">Collapsed Sidebar</span>
-								</a>
-							</li>
-							<li>
-								<a href="layout-static-sidebar.html">
-									<span class="title">Static Sidebar</span>
-								</a>
-							</li>
-							<li>
-								<a href="layout-horizontal-menu.html">
-									<span class="title">Horizontal Menu</span>
-								</a>
-							</li>
-							<li>
-								<a href="layout-horizontal-plus-sidebar.html">
-									<span class="title">Horizontal &amp; Sidebar Menu</span>
-								</a>
-							</li>
-							<li>
-								<a href="layout-horizontal-menu-click-to-open-subs.html">
-									<span class="title">Horizontal Open On Click</span>
-								</a>
-							</li>
-							<li>
-								<a href="layout-horizontal-menu-min.html">
-									<span class="title">Horizontal Menu Minimal</span>
-								</a>
-							</li>
-							<li>
-								<a href="layout-right-sidebar.html">
-									<span class="title">Right Sidebar</span>
-								</a>
-							</li>
-							<li>
-								<a href="layout-chat-open.html">
-									<span class="title">Chat Open</span>
-								</a>
-							</li>
-							<li>
-								<a href="layout-horizontal-sidebar-menu-collapsed-right.html">
-									<span class="title">Both Menus &amp; Collapsed</span>
-								</a>
-							</li>
-							<li>
-								<a href="layout-boxed.html">
-									<span class="title">Boxed Layout</span>
-								</a>
-							</li>
-							<li>
-								<a href="layout-boxed-horizontal-menu.html">
-									<span class="title">Boxed &amp; Horizontal Menu</span>
-								</a>
-							</li>
-							<li>
-								<a href="http://www.cssmoban.com">
-									<span class="title">weidea.net</span>
+								<a href="/admin/classify/index">
+									<span class="title">分类列表</span>
 								</a>
 							</li>
 						</ul>
