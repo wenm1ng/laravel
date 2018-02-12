@@ -228,7 +228,7 @@
 						<ul>
 							<li>
 								<a href="/admin/classify/index">
-									<span class="title">分类列表</span>
+									<span class="title">商品分类列表</span>
 								</a>
 							</li>
 						</ul>
@@ -236,67 +236,12 @@
 					<li>
 						<a href="ui-panels.html">
 							<i class="linecons-note"></i>
-							<span class="title">UI Elements</span>
+							<span class="title">商品管理</span>
 						</a>
 						<ul>
 							<li>
-								<a href="ui-panels.html">
-									<span class="title">Panels</span>
-								</a>
-							</li>
-							<li>
-								<a href="ui-buttons.html">
-									<span class="title">Buttons</span>
-								</a>
-							</li>
-							<li>
-								<a href="ui-tabs-accordions.html">
-									<span class="title">Tabs &amp; Accordions</span>
-								</a>
-							</li>
-							<li>
-								<a href="ui-modals.html">
-									<span class="title">Modals</span>
-								</a>
-							</li>
-							<li>
-								<a href="ui-breadcrumbs.html">
-									<span class="title">Breadcrumbs</span>
-								</a>
-							</li>
-							<li>
-								<a href="ui-blockquotes.html">
-									<span class="title">Blockquotes</span>
-								</a>
-							</li>
-							<li>
-								<a href="ui-progressbars.html">
-									<span class="title">Progress Bars</span>
-								</a>
-							</li>
-							<li>
-								<a href="ui-navbars.html">
-									<span class="title">Navbars</span>
-								</a>
-							</li>
-							<li>
-								<a href="ui-alerts.html">
-									<span class="title">Alerts</span>
-								</a>
-							</li>
-							<li>
-								<a href="ui-pagination.html">
-									<span class="title">Pagination</span>
-								</a>
-							</li>
-							<li>
-								<a href="ui-typography.html">
-									<span class="title">Typography</span>
-								</a>
-							</li>
-							<li>
-								<a href="ui-other-elements.html">
-									<span class="title">Other Elements</span>
+								<a href="/admin/goods/index">
+									<span class="title">商品列表</span>
 								</a>
 							</li>
 						</ul>
@@ -1024,7 +969,6 @@
 
 <!--中间内容****************************************************************************************-->
 			@yield('body')
-
 <!--中间内容****************************************************************************************-->
 			<!-- Main Footer -->
 			<!-- Choose between footer styles: "footer-type-1" or "footer-type-2" -->
@@ -1191,7 +1135,8 @@
 	
 
 
-
+	@yield('modal')
+	
 
 	<!-- Imported styles on this page -->
 	<link rel="stylesheet" href="/Admin/assets/css/fonts/meteocons/css/meteocons.css">
@@ -1214,8 +1159,11 @@
 	<!-- JavaScripts initializations and stuff -->
 	<script src="/Admin/assets/js/xenon-custom.js"></script>
 	@yield('afterscript')
-</body>
 
+</body>
+<script>
+	
+</script>
 <!--尾部script部分*****************************************************-->
 @yield('footscript')
 <!--尾部script部分*****************************************************-->

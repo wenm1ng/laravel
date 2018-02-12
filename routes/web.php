@@ -41,5 +41,9 @@ Route::group(['namespace'=>'Admin'],function(){
 		Route::get('/admin/user/index','UserController@index');
 		Route::any('/admin/user/addinfo','UserController@addinfo');
 		Route::get('/admin/classify/index','ClassifyController@index');
+		Route::post('/admin/classify/addinfo','ClassifyController@addinfo');
+		Route::post('/admin/classify/cascade','ClassifyController@cascade');
+		Route::get('/admin/goods/index','GoodsController@index');
+		Route::get('/admin/goods/addinfo','GoodsController@addinfo');
 	});
 });
