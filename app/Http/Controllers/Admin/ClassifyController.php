@@ -12,7 +12,7 @@
 		public function index(){
 			
 			// print_r($list);
-			return view('Admin.Classify.index',['list'=>$this->get_classify]);
+			return view('Admin.Classify.index',['list'=>$this->get_classify()]);
 		}
 
 		public function get_classify(){

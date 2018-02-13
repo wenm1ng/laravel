@@ -20,7 +20,7 @@
 	<link rel="stylesheet" href="/Admin/assets/css/xenon-skins.css">
 	<link rel="stylesheet" href="/Admin/assets/css/custom.css">
 
-	<script src="/Admin/assets/js/jquery-1.11.1.min.js"></script>
+	<script src="/js/jquery-2.1.1.min.js"></script>
 	<script src="/js/common.js"></script>
 	<script src="/layer/layer.js"></script>
 	<!--头部script*************************************-->

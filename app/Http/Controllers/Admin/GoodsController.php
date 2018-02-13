@@ -19,9 +19,20 @@
 			if($request->isMethod('post')){
 
 			}else{
-				$classify = DB::table('classify')->where('status','=','1')->where('pid','=','0')->->get();
+				$classify = DB::table('goods_classify')->where('status','=','1')->where('pid','=','0')->get();
 
 				return view('Admin.Goods.addinfo',['classify'=>$classify]);
+			}
+		}
+
+		public function get_classify(Request $request){
+			//分类级联
+			$list = DB::table('goods_classify')->where("pid",'=',$request->class_id)->get();
+
+			if(empty($list)){
+				return response()->json(['status'=>0,'data'=>'']);
+			}else{
+				return response()->json(['status'=>1,'data'=>$list]);
 			}
 		}
 	}
