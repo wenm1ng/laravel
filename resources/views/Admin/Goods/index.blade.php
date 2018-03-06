@@ -13,28 +13,36 @@
 							<tr>
 								<th id="idd496bb567b703-col-0">商品名</th>
 								<th data-priority="1" id="idd496bb567b703-col-1">商品类别</th>
+								<th data-priority="1" id="idd496bb567b703-col-2">商品图片</th>
 								<th data-priority="1" id="idd496bb567b703-col-2">商品数量</th>
 								<th data-priority="3" id="idd496bb567b703-col-3">状态</th>
 								<th data-priority="1" id="idd496bb567b703-col-4">商品价格</th>
+								<th data-priority="3" id="idd496bb567b703-col-8">商品成本价</th>
 								<th data-priority="3" id="idd496bb567b703-col-5">促销价格</th>
 								<th data-priority="3" id="idd496bb567b703-col-6">是否会员专享</th>
 								<th data-priority="3" id="idd496bb567b703-col-7">会员专享价</th>
-								<th data-priority="3" id="idd496bb567b703-col-8">商品成本价</th>
 								<th data-priority="3" id="idd496bb567b703-col-9">目前是否参与活动</th>
 							</tr>
 						</thead>
 						<tbody>
+							
 							@foreach($list as $val)
+							<tr>
 								<td data-columns="idd496bb567b703-col-1">{{$val->goods_name}}</td>
+								<td data-columns="idd496bb567b703-col-2">{{$val->class_name}}</td>
+								<td data-columns="idd496bb567b703-col-2"><img src="{{$val->goods_img1}}" alt="" style="height:100px;width:100px"></td>
 								<td data-columns="idd496bb567b703-col-2">{{$val->goods_num}}</td>
 								<td data-columns="idd496bb567b703-col-3">{{$val->status}}</td>
-								<td data-columns="idd496bb567b703-col-4">{{$val->goods_price}}</td>
+								<td data-columns="idd496bb567b703-col-4">￥{{$val->goods_price}}</td>
+								<td data-columns="idd496bb567b703-col-8">￥{{$val->goods_cost_price}}</td>
 								<td data-columns="idd496bb567b703-col-5">{{$val->goods_sale_price}}</td>
 								<td data-columns="idd496bb567b703-col-6">{{$val->is_member}}</td>
 								<td data-columns="idd496bb567b703-col-7">{{$val->goods_member_price}}</td>
-								<td data-columns="idd496bb567b703-col-8">{{$val->goods_cost_price}}</td>
 								<td data-columns="idd496bb567b703-col-9">{{$val->is_activity}}</td>
+							</tr>
 							@endforeach
+							
+
 						</tbody>
 					</table>
 					<div style="float:right">

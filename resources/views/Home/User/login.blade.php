@@ -66,7 +66,7 @@ $(function(){
                 <p>
                     <input type="password" name="password" class="loginuserpassword">
                 </p>
-                <p><span class="fl fntz14 margin-t10"><a href="/user/register" style="color:#ff6000">立即注册</a></span><span class="fr fntz12 margin-t10"><a href="/user/forget">忘记密码？</a></span></p>
+                <p><span class="fl fntz14 margin-t10"><a href="/home/user/register" style="color:#ff6000">立即注册</a></span><span class="fr fntz12 margin-t10"><a href="/home/user/forget">忘记密码？</a></span></p>
                 <p>
                     <input type="submit" class="loginbtn" value="登  录">
                 </p>
@@ -97,18 +97,18 @@ $(function(){
 
 		$.ajax({
 			'type':'post',
-			'url':'/user/login',
+			'url':'/home/user/login',
 			'data':{username:username,password:password},
 			'headers':{'X-CSRF-TOKEN':$('meta[name="csrf_token"]').attr('content')},
 			'success':function(data){
 				// console.log(data);
 				if(data.status){
 					//登录
-                    location.href = '/index';
+                    location.href = '/home/index';
 				}else{
 					//提示信息
 					that.html('');
-					that.append('<span style="color:red">帐号或密码错误，请重新输入或者<a href="/user/forget" style="color:#90B831">找回密码</a></span>');
+					that.append('<span style="color:red">帐号或密码错误，请重新输入或者<a href="/home/user/forget" style="color:#90B831">找回密码</a></span>');
 				}
 			},
 			'error':function(data){

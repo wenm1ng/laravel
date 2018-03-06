@@ -24,4 +24,11 @@
         fwrite($myfile, $text . "---------" . date("Y-m-d G:i:s") . "\r\n");
         fclose($myfile);
     }
+
+    //递归创建目录
+    function Directory( $dir ){  
+ 
+       return  is_dir ( $dir ) or Directory(dirname( $dir )) and  mkdir ( $dir , 0777);
+     
+    }
  ?>

@@ -18,13 +18,13 @@
     <div class="Inside_pages">
       <div class="Collection">
       	@if(session('user_info'))
-      	<span>你好，</span><a href="/user/login" class="green">{{session('user_info')->user_name}}</a>
+      	<span>你好，</span><a href="/home/user/login" class="green">{{session('user_info')->user_name}}</a>
       	&nbsp;
-      	<a href="/user/logout" class="green">退出登录</a>
+      	<a href="/home/user/logout" class="green">退出登录</a>
       	@else
-      	<a href="/user/login" class="green">请登录</a>
+      	<a href="/home/user/login" class="green">请登录</a>
       	@endif
-      	<a href="/user/register" class="red">免费注册</a>
+      	<a href="/home/user/register" class="red">免费注册</a>
       </div>
 	<div class="hd_top_manu clearfix">
 	  <ul class="clearfix">

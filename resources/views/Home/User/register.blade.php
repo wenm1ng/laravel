@@ -56,13 +56,13 @@ $(function(){
         <div class="tab">
             <ul>
                 <li class="on">欢迎注册</li>
-                <span style="display:block;height:40px;line-height:40px">已有账号，现在就&nbsp;&nbsp;<a href="/user/login">登录</a></span>
+                <span style="display:block;height:40px;line-height:40px">已有账号，现在就&nbsp;&nbsp;<a href="/home/user/login">登录</a></span>
                 <!-- <li>我是卖家</li> -->
             </ul>
         </div>
         <div class="conlist">
             <div class="conbox" style="display:block;">
-                <form action="/user/register" class="form-1">
+                <form action="/home/user/register" class="form-1">
 
                   <p>
                       <div class="fl res-text">用户名：</div><div><input type="text" name="username" placeholder="4-16位数字、字母、下划线" class="loginuser username"></div>
@@ -96,7 +96,7 @@ $(function(){
             
             
               <div class="conbox">
-                <form action="/user/register" class="form-2">
+                <form action="/home/user/register" class="form-2">
                   <p>
                       <div class="fl res-text">用户名：</div><div><input type="text" name="username" placeholder="4-16位数字、字母、下划线" class="loginuser username"></div>
                       <div class="veri"></div>
@@ -148,7 +148,7 @@ $(function(){
       that = $(this);
       $.ajax({
         type:'POST',
-        url:'/user/check_test',
+        url:'/home/user/check_test',
         data:{type:2,username:username},
         headers:{'X-CSRF-TOKEN':$('meta[name="_token"]').attr('content')},
         success:function(data){
@@ -180,7 +180,7 @@ $(function(){
       that = $(this);
       $.ajax({
         type:'POST',
-        url:'/user/check_test',
+        url:'/home/user/check_test',
         data:{type:1,email:email},
         headers:{'X-CSRF-TOKEN':$('meta[name="_token"]').attr('content')},
         success:function(data){
@@ -263,7 +263,7 @@ $(function(){
       //发送邮件
       $.ajax({
         type:'POST',
-        url:'/user/send_email',
+        url:'/home/user/send_email',
         data:{email,email},
         headers:{'X-CSRF-TOKEN':$('meta[name="_token"]').attr('content')},
         success:function(data){
@@ -295,14 +295,14 @@ $(function(){
       
       $.ajax({
         type:'POST',
-        url:'/user/register',
+        url:'/home/user/register',
         data:data,
         headers:{'X-CSRF-TOKEN':$('meta[name="_token"]').attr('content')},
         success:function(data){
           if(data.status){
-            location.href = '/page/index';
+            location.href = '/home/page/index';
           }else{
-            location.href = '/page/not_found';
+            location.href = '/home/page/not_found';
           }
         },
         error:function(data){

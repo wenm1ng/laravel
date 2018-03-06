@@ -3,6 +3,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Admin\PublicController;
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
 use DB;
 use Mail;
 use Hash;
@@ -14,14 +15,16 @@ Class UserController extends PublicController{
 			// print_r($request->all());
 			// print_r(Hash::make($request->password));
 			$admin_info = DB::table('admin')->where("login_name",'=',$request->username)->first();
-
-			if(empty($admin_info)){
+			$collection = collect($admin_info);
+			if($collection->isEmpty()){
 				return back()->with('error','该管理账号不存在！');exit;
 			}
 
 			if($admin_info->status == 0){
 				return back()->with('error','该管理账号被禁用！');exit;
 			}
+
+			//判断是否有记住我token
 
 			if(Hash::check($request->password,$admin_info->password)){
 				//记录登录信息
