@@ -124,115 +124,128 @@
    <div class="title_name"><em></em>所有商品分类</div>
    <div class="content hd_allsort_out_box_new">
     <ul class="Menu_list">
-      <li class="name">
-		<div class="Menu_name"><a href="product_list.html" >茶品类</a> <span>&lt;</span></div>
-		<div class="link_name">
-		  <p>
-          <a href="Product_Detailed.html">茅台</a> | 
-          <a href="#">五粮液</a> | 
-          <a href="#">郎酒</a> | 
-          <a href="#">剑南春</a>
-          <a href="Product_Detailed.html">茅台</a> | 
-          <a href="#">五粮液</a> | 
-          <a href="#">郎酒</a> | 
-          <a href="#">剑南春</a>
-          </p>
-		</div>
-		<div class="menv_Detail">
-		 <div class="cat_pannel clearfix">
-		   <div class="hd_sort_list">
-		    <dl class="clearfix" data-tpc="1">
-			 <dt><a href="#">面膜<i>></i></a></dt>
-			 <dd><a href="#">撕拉面膜</a><a href="#">面膜贴</a><a href="#">免洗面膜</a><a href="#">水洗面膜</a></dd> 
-			</dl>
-			 <dl class="clearfix" data-tpc="2">
-			 <dt><a href="#">洁面<i>></i></a></dt>
-			 <dd><a href="#">洁面摩丝</a><a href="#">洁面乳 </a><a href="#">洁面啫哩/胶</a><a href="#">面部去角质/磨砂</a><a href="#">洁面膏/霜</a><a href="#">洁肤皂</a></dd> 
-			</dl>
-			 <dl class="clearfix" data-tpc="3">
-			 <dt><a href="#">化妆水<i>></i></a></dt>
-			 <dd><a href="#"> 喷雾</a><a href="#"> 精华水</a><a href="#"> 柔肤水</a><a href="#">爽肤水</a><a href="#">收敛水/紧肤水</a></dd> 
-			</dl>
-			 <dl class="clearfix" data-tpc="4">
-			 <dt><a href="#">眼部护理<i>></i></a></dt>
-			 <dd><a href="#"> 眼膜</a><a href="#"> 眼部凝胶</a><a href="#">眼部精华</a><a href="#">眼霜</a></dd> 
-			</dl>
-             <dl class="clearfix" data-tpc="4">
-			 <dt><a href="#">眼部护理<i>></i></a></dt>
-			 <dd><a href="#"> 眼膜</a><a href="#"> 眼部凝胶</a><a href="#">眼部精华</a><a href="#">眼霜</a></dd> 
-			</dl>
-             <dl class="clearfix" data-tpc="4">
-			 <dt><a href="#">防晒<i>></i></a></dt>
-			 <dd><a href="#"> 眼膜</a><a href="#"> 眼部凝胶</a><a href="#">眼部精华</a><a href="#">眼霜</a></dd> 
-			</dl>
-             <dl class="clearfix" data-tpc="4">
-			 <dt><a href="#">唇部护理<i>></i></a></dt>
-			 <dd><a href="#"> 眼膜</a><a href="#"> 眼部凝胶</a><a href="#">眼部精华</a><a href="#">眼霜</a></dd> 
-			</dl> <dl class="clearfix" data-tpc="4">
-			 <dt><a href="#">乳液/面霜<i>></i></a></dt>
-			 <dd><a href="#"> 乳液</a><a href="#"> 面霜</a><a href="#">按摩霜</a><a href="#">面部啫喱</a><a href="#">凝露/凝胶</a></dd> 
-			</dl>
-		   </div><div class="Brands">
-		  </div>
-		  </div>
-		  <!--品牌-->		  
-		</div>		 
-		</li>
-        <li class="name">
-		<div class="Menu_name"><a href="#" >豆制品类</a><span>&lt;</span></div>
-		<div class="link_name">
-		 <a href="Product_Detailed.html"> 面霜</a> | <a href="#">眼霜</a> | <a href="#"> 面膜</a> | <a href="#">护肤套装</a>
+    	@foreach($class_list as $value)
+	      <li class="name">
+			<div class="Menu_name"><a href="product_list.html" >{{$value->class_name}}</a> <span>&lt;</span></div>
+			<div class="link_name">
+			  <p>
+				@foreach($value as $val)
 
-		</div>
-		<div class="menv_Detail">
-		 <div class="cat_pannel clearfix">		   
-		  </div>
-		</div>		
-		</li>
-        <li class="name">
-		<div class="Menu_name"><a href="#" >菌菇类</a><span>&lt;</span></div>
-		<div class="link_name">
-		 <a href="Product_Detailed.html"> 面霜</a><a href="#">眼霜</a><a href="#"> 面膜</a><a href="#">护肤套装</a>
+		          <a href="Product_Detailed.html">{{$val->class_name}}</a> | 
+		          <!-- <a href="#">五粮液</a> | 
+		          <a href="#">郎酒</a> | 
+		          <a href="#">剑南春</a>
+		          <a href="Product_Detailed.html">茅台</a> | 
+		          <a href="#">五粮液</a> | 
+		          <a href="#">郎酒</a> | 
+		          <a href="#">剑南春</a> -->
+				@endforeach
+	          </p>
+			</div>
+			<div class="menv_Detail">
+			 <div class="cat_pannel clearfix">
+			   <div class="hd_sort_list">
+				@foreach($value as $val)
+			    <dl class="clearfix" data-tpc="1">
+				 <dt><a href="#">{{$val->class_name}}<i>></i></a></dt>
+				 <dd>
+				 @foreach($val as $v)
+				 <a href="#">{{$v->class_name}}</a>
+				 @endforeach
+				 </dd> 
+				</dl>
+				@endforeach 
 
-		</div>
-		<div class="menv_Detail">
-		 <div class="cat_pannel clearfix">		   
-		  </div>
-		</div>		
-		</li>
-               <li class="name">
-		<div class="Menu_name"><a href="#" >粮油五谷类</a><span>&lt;</span></div>
-		<div class="link_name">
-		 <a href="Product_Detailed.html"> 面霜</a><a href="#">眼霜</a><a href="#"> 面膜</a><a href="#">护肤套装</a>
+				<!--  <dl class="clearfix" data-tpc="2">
+				 <dt><a href="#">洁面<i>></i></a></dt>
+				 <dd><a href="#">洁面摩丝</a><a href="#">洁面乳 </a><a href="#">洁面啫哩/胶</a><a href="#">面部去角质/磨砂</a><a href="#">洁面膏/霜</a><a href="#">洁肤皂</a></dd> 
+				</dl>
+				 <dl class="clearfix" data-tpc="3">
+				 <dt><a href="#">化妆水<i>></i></a></dt>
+				 <dd><a href="#"> 喷雾</a><a href="#"> 精华水</a><a href="#"> 柔肤水</a><a href="#">爽肤水</a><a href="#">收敛水/紧肤水</a></dd> 
+				</dl>
+				 <dl class="clearfix" data-tpc="4">
+				 <dt><a href="#">眼部护理<i>></i></a></dt>
+				 <dd><a href="#"> 眼膜</a><a href="#"> 眼部凝胶</a><a href="#">眼部精华</a><a href="#">眼霜</a></dd> 
+				</dl>
+	             <dl class="clearfix" data-tpc="4">
+				 <dt><a href="#">眼部护理<i>></i></a></dt>
+				 <dd><a href="#"> 眼膜</a><a href="#"> 眼部凝胶</a><a href="#">眼部精华</a><a href="#">眼霜</a></dd> 
+				</dl>
+	             <dl class="clearfix" data-tpc="4">
+				 <dt><a href="#">防晒<i>></i></a></dt>
+				 <dd><a href="#"> 眼膜</a><a href="#"> 眼部凝胶</a><a href="#">眼部精华</a><a href="#">眼霜</a></dd> 
+				</dl>
+	             <dl class="clearfix" data-tpc="4">
+				 <dt><a href="#">唇部护理<i>></i></a></dt>
+				 <dd><a href="#"> 眼膜</a><a href="#"> 眼部凝胶</a><a href="#">眼部精华</a><a href="#">眼霜</a></dd> 
+				</dl> <dl class="clearfix" data-tpc="4">
+				 <dt><a href="#">乳液/面霜<i>></i></a></dt>
+				 <dd><a href="#"> 乳液</a><a href="#"> 面霜</a><a href="#">按摩霜</a><a href="#">面部啫喱</a><a href="#">凝露/凝胶</a></dd> 
+				</dl> -->
+			   </div><div class="Brands">
+			  </div>
+			  </div>
+			  <!--品牌-->		  
+			</div>		
+			</li>
+		@endforeach
 
-		</div>
-		<div class="menv_Detail">
-		 <div class="cat_pannel clearfix">		   
-		  </div>
-		</div>		
-		</li>
-               <li class="name">
-		<div class="Menu_name"><a href="#" >禽蛋类</a><span>&lt;</span></div>
-		<div class="link_name">
-		 <a href="Product_Detailed.html"> 面霜</a><a href="#">眼霜</a><a href="#"> 面膜</a><a href="#">护肤套装</a>
+	       <!--  <li class="name">
+			<div class="Menu_name"><a href="#" >豆制品类</a><span>&lt;</span></div>
+			<div class="link_name">
+			 <a href="Product_Detailed.html"> 面霜</a> | <a href="#">眼霜</a> | <a href="#"> 面膜</a> | <a href="#">护肤套装</a>
 
-		</div>
-		<div class="menv_Detail">
-		 <div class="cat_pannel clearfix">		   
-		  </div>
-		</div>		
-		</li>
-               <li class="name">
-		<div class="Menu_name"><a href="#" >蔬菜类类</a><span>&lt;</span></div>
-		<div class="link_name">
-		 <a href="Product_Detailed.html"> 面霜</a><a href="#">眼霜</a><a href="#"> 面膜</a><a href="#">护肤套装</a>
+			</div>
+			<div class="menv_Detail">
+			 <div class="cat_pannel clearfix">		   
+			  </div>
+			</div>		
+			</li>
+	        <li class="name">
+			<div class="Menu_name"><a href="#" >菌菇类</a><span>&lt;</span></div>
+			<div class="link_name">
+			 <a href="Product_Detailed.html"> 面霜</a><a href="#">眼霜</a><a href="#"> 面膜</a><a href="#">护肤套装</a>
 
-		</div>
-		<div class="menv_Detail">
-		 <div class="cat_pannel clearfix">		   
-		  </div>
-		</div>		
-		</li>
+			</div>
+			<div class="menv_Detail">
+			 <div class="cat_pannel clearfix">		   
+			  </div>
+			</div>		
+			</li>
+	               <li class="name">
+			<div class="Menu_name"><a href="#" >粮油五谷类</a><span>&lt;</span></div>
+			<div class="link_name">
+			 <a href="Product_Detailed.html"> 面霜</a><a href="#">眼霜</a><a href="#"> 面膜</a><a href="#">护肤套装</a>
+
+			</div>
+			<div class="menv_Detail">
+			 <div class="cat_pannel clearfix">		   
+			  </div>
+			</div>		
+			</li>
+	               <li class="name">
+			<div class="Menu_name"><a href="#" >禽蛋类</a><span>&lt;</span></div>
+			<div class="link_name">
+			 <a href="Product_Detailed.html"> 面霜</a><a href="#">眼霜</a><a href="#"> 面膜</a><a href="#">护肤套装</a>
+
+			</div>
+			<div class="menv_Detail">
+			 <div class="cat_pannel clearfix">		   
+			  </div>
+			</div>		
+			</li>
+	               <li class="name">
+			<div class="Menu_name"><a href="#" >蔬菜类类</a><span>&lt;</span></div>
+			<div class="link_name">
+			 <a href="Product_Detailed.html"> 面霜</a><a href="#">眼霜</a><a href="#"> 面膜</a><a href="#">护肤套装</a>
+
+			</div>
+			<div class="menv_Detail">
+			 <div class="cat_pannel clearfix">		   
+			  </div>
+			</div>		
+			</li> -->
     </ul>
    </div>
   </div>
