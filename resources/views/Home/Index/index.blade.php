@@ -150,7 +150,7 @@
 				 <dt><a href="#">{{$val->class_name}}<i>></i></a></dt>
 				 <dd>
 				 @foreach($val->class_list_small as $v)
-				 <a href="#">{{$v->class_name}}</a>
+				 <a href="/home/goods/list">{{$v->class_name}}</a>
 				 @endforeach
 				 </dd> 
 				</dl>

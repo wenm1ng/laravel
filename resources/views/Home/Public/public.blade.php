@@ -11,6 +11,9 @@
 <script src="/js/footer.js" type="text/javascript"></script>
 <script src="/js/iCheck.js" type="text/javascript"></script>
 <script src="/js/custom.js" type="text/javascript"></script>
+
+@yield('headscript')
+
 <title>@yield('title')</title>
 </head>
 
@@ -171,5 +174,11 @@
               });
             });
             </script>
+
+            @yield('afterscript')
+
 </body>
+
+@yield('footscript')
+
 </html>
