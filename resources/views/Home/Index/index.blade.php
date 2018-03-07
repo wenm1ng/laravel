@@ -129,7 +129,7 @@
 			<div class="Menu_name"><a href="product_list.html" >{{$value->class_name}}</a> <span>&lt;</span></div>
 			<div class="link_name">
 			  <p>
-				@foreach($value as $val)
+				@foreach($value->class_list_mid as $val)
 
 		          <a href="Product_Detailed.html">{{$val->class_name}}</a> | 
 		          <!-- <a href="#">五粮液</a> | 
@@ -145,11 +145,11 @@
 			<div class="menv_Detail">
 			 <div class="cat_pannel clearfix">
 			   <div class="hd_sort_list">
-				@foreach($value as $val)
+				@foreach($value->class_list_mid as $val)
 			    <dl class="clearfix" data-tpc="1">
 				 <dt><a href="#">{{$val->class_name}}<i>></i></a></dt>
 				 <dd>
-				 @foreach($val as $v)
+				 @foreach($val->class_list_small as $v)
 				 <a href="#">{{$v->class_name}}</a>
 				 @endforeach
 				 </dd> 

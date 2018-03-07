@@ -31,4 +31,10 @@
        return  is_dir ( $dir ) or Directory(dirname( $dir )) and  mkdir ( $dir , 0777);
      
     }
+
+    //对象转数组
+    function obj_to_array($object){
+        $object =  json_decode( json_encode( $object),true);
+        return $object;
+    }
  ?>
