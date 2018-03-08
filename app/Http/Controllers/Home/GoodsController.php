@@ -12,6 +12,7 @@
 	use Illuminate\Support\Collection;
 	use Cookie;
 	use Illuminate\Http\Response;
+	use Route;
 
 	Class GoodsController extends PublicController{
 		//商品详情
@@ -38,6 +39,10 @@
 			$goods_info = DB::table("goods")->where("goods_id",'=',$id)->first();
 			$goods_info = obj_to_array($goods_info);
 			// print_r($goods_info);exit;
+			// Route::get('cookieset',function(){
+			// 	$cookie_cart = Cookie::forever('cart','nihao');
+			// 	return Response::make()->withCookie($cookie_cart);
+			// })
 			// Cookie::queue(Cookie::forget('cart'));
 			// setcookie('cart','',-1,'/');
 			// Cookie::forget('cart');
@@ -54,11 +59,12 @@
 				$cart_arr[] = $goods_info;
 			}
 			//将商品信息存入cookie
-			// Cookie::make('cart',$cart_arr);
-			$response = new Response('nihao');
-			$response->withCookie(cookie('cart','bbbb'));
+			// print_r($cart_arr);exit;
+			$response = new Response();
+			$cookie = cookie('cart',$cart_arr);
+			// $response->withCookie($cookie);
 
-			var_dump($request->cookie('cart'));exit;
+			print_r(Cookie::get('cart'));exit;
 			return redirect('/home/cart/index');
 		}
 
