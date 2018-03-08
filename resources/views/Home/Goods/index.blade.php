@@ -169,7 +169,7 @@
    </div>
    <div class="p_list  clearfix">
    <ul>
-    <li class="gl-item">
+    <!-- <li class="gl-item">
     <em class="icon_special tejia"></em>
 	<div class="Borders">
 	 <div class="img"><a href="Product_Detailed.html"><img src="products/P_1.jpg" style="width:220px;height:220px"></a></div>
@@ -194,13 +194,14 @@
 	  <a href="#" class="p-o-btn shop_cart"><em></em>联系我们</a>
 	 </div>
 	 </div>
-	</li>
+	</li> -->
+	@foreach($goods_list as $val)
 	<li class="gl-item">
     <em class="icon_special tejia"></em>
 	<div class="Borders">
-	 <div class="img"><a href="Product_Detailed.html"><img src="products/P_3.jpg" style="width:220px;height:220px"></a></div>
-	 <div class="Price"><b>¥89</b><span>[¥49.01/500g]</span></div>
-	 <div class="name"><a href="Product_Detailed.html">乐事 无限薯片三连装（原味+番茄+烤肉）104g*3/组</a></div>
+	 <div class="img"><a href="/home/goods/viewinfo/{{$val->goods_id}}"><img src="{{$val->goods_img1}}" style="width:220px;height:220px"></a></div>
+	 <div class="Price"><b>¥{{$val->goods_price}}</b><span>[¥49.01/500g]</span></div>
+	 <div class="name"><a href="/home/goods/viewinfo/{{$val->goods_id}}">{{$val->goods_name}}</a></div>
 	<div class="Shop_name"><a href="#">三只松鼠旗舰店</a></div>
 	 <div class="p-operate">
 	  <a href="#" class="p-o-btn Collect"><em></em>收藏</a>
@@ -208,151 +209,7 @@
 	 </div>
 	 </div>
 	</li>
-	<li class="gl-item">
-	<div class="Borders">
-	 <div class="img"><a href="Product_Detailed.html"><img src="products/P_4.jpg" style="width:220px;height:220px"></a></div>
-	 <div class="Price"><b>¥89</b><span>[¥49.01/500g]</span></div>
-	 <div class="name"><a href="Product_Detailed.html">乐事 无限薯片三连装（原味+番茄+烤肉）104g*3/组</a></div>
-	 <div class="Shop_name"><a href="#">三只松鼠旗舰店</a></div>
-	 <div class="p-operate">
-	  <a href="#" class="p-o-btn Collect"><em></em>收藏</a>
-	  <a href="#" class="p-o-btn shop_cart"><em></em>联系我们</a>
-	 </div>
-	 </div>
-	</li>
-	<li class="gl-item">
-    <em class="icon_special xinping"></em>
-	<div class="Borders">
-	 <div class="img"><a href="Product_Detailed.html"><img src="products/P_5.jpg" style="width:220px;height:220px"></a></div>
-	 <div class="Price"><b>¥89</b><span>[¥49.01/500g]</span></div>
-	 <div class="name"><a href="Product_Detailed.html">乐事 无限薯片三连装（原味+番茄+烤肉）104g*3/组</a></div>
-	<div class="Shop_name"><a href="#">三只松鼠旗舰店</a></div>
-	 <div class="p-operate">
-	  <a href="#" class="p-o-btn Collect"><em></em>收藏</a>
-	  <a href="#" class="p-o-btn shop_cart"><em></em>联系我们</a>
-	 </div>
-	 </div>
-	</li>
-	<li class="gl-item">
-	<div class="Borders">
-	 <div class="img"><a href="#"><img src="products/P_6.jpg" style="width:220px;height:220px"></a></div>
-	 <div class="Price"><b>¥89</b><span>[¥49.01/500g]</span></div>
-	 <div class="name"><a href="#">乐事 无限薯片三连装（原味+番茄+烤肉）104g*3/组</a></div>
-	<div class="Shop_name"><a href="#">三只松鼠旗舰店</a></div>
-	 <div class="p-operate">
-	  <a href="#" class="p-o-btn Collect"><em></em>收藏</a>
-	  <a href="#" class="p-o-btn shop_cart"><em></em>联系我们</a>
-	 </div>
-	 </div>
-	</li>
-	<li class="gl-item">
-	<div class="Borders">
-	 <div class="img"><a href="#"><img src="products/P_7.jpg" style="width:220px;height:220px"></a></div>
-	 <div class="Price"><b>¥89</b><span>[¥49.01/500g]</span></div>
-	 <div class="name"><a href="#">乐事 无限薯片三连装（原味+番茄+烤肉）104g*3/组</a></div>
-	 <div class="Shop_name"><a href="#">三只松鼠旗舰店</a></div>
-	 <div class="p-operate">
-	  <a href="#" class="p-o-btn Collect"><em></em>收藏</a>
-	  <a href="#" class="p-o-btn shop_cart"><em></em>联系我们</a>
-	 </div>
-	 </div>
-	</li>
-	<li class="gl-item">
-	<div class="Borders">
-	 <div class="img"><a href="#"><img src="products/P_15.jpg" style="width:220px;height:220px"></a></div>
-	 <div class="Price"><b>¥89</b><span>[¥49.01/500g]</span></div>
-	 <div class="name"><a href="#">乐事 无限薯片三连装（原味+番茄+烤肉）104g*3/组</a></div>
-	 <div class="Shop_name"><a href="#">三只松鼠旗舰店</a></div>
-	 <div class="p-operate">
-	  <a href="#" class="p-o-btn Collect"><em></em>收藏</a>
-	  <a href="#" class="p-o-btn shop_cart"><em></em>联系我们</a>
-	 </div>
-	 </div>
-	</li>
-	<li class="gl-item">
-	<div class="Borders">
-	 <div class="img"><a href="#"><img src="products/P_9.jpg" style="width:220px;height:220px"></a></div>
-	 <div class="Price"><b>¥89</b><span>[¥49.01/500g]</span></div>
-	 <div class="name"><a href="#">乐事 无限薯片三连装（原味+番茄+烤肉）104g*3/组</a></div>
-	<div class="Shop_name"><a href="#">三只松鼠旗舰店</a></div>
-	 <div class="p-operate">
-	  <a href="#" class="p-o-btn Collect"><em></em>收藏</a>
-	  <a href="#" class="p-o-btn shop_cart"><em></em>联系我们</a>
-	 </div>
-	 </div>
-	</li>
-	<li class="gl-item">
-	<div class="Borders">
-	 <div class="img"><a href="#"><img src="products/P_8.jpg" style="width:220px;height:220px"></a></div>
-	 <div class="Price"><b>¥89</b><span>[¥49.01/500g]</span></div>
-	 <div class="name"><a href="#">乐事 无限薯片三连装（原味+番茄+烤肉）104g*3/组</a></div>
-	<div class="Shop_name"><a href="#">三只松鼠旗舰店</a></div>
-	 <div class="p-operate">
-	  <a href="#" class="p-o-btn Collect"><em></em>收藏</a>
-	  <a href="#" class="p-o-btn shop_cart"><em></em>联系我们</a>
-	 </div>
-	 </div>
-	</li>
-	<li class="gl-item">
-	<div class="Borders">
-	 <div class="img"><a href="#"><img src="products/P_11.jpg" style="width:220px;height:220px"></a></div>
-	 <div class="Price"><b>¥89</b><span>[¥49.01/500g]</span></div>
-	 <div class="name"><a href="#">乐事 无限薯片三连装（原味+番茄+烤肉）104g*3/组</a></div>
-	 <div class="Shop_name"><a href="#">三只松鼠旗舰店</a></div>
-	 <div class="p-operate">
-	  <a href="#" class="p-o-btn Collect"><em></em>收藏</a>
-	  <a href="#" class="p-o-btn shop_cart"><em></em>联系我们</a>
-	 </div>
-	 </div>
-	</li>
-	<li class="gl-item">
-	<div class="Borders">
-	 <div class="img"><a href="#"><img src="products/P_16.jpg" style="width:220px;height:220px"></a></div>
-	 <div class="Price"><b>¥89</b><span>[¥49.01/500g]</span></div>
-	 <div class="name"><a href="#">乐事 无限薯片三连装（原味+番茄+烤肉）104g*3/组</a></div>
-	 <div class="Shop_name"><a href="#">三只松鼠旗舰店</a></div>
-	 <div class="p-operate">
-	  <a href="#" class="p-o-btn Collect"><em></em>收藏</a>
-	  <a href="#" class="p-o-btn shop_cart"><em></em>联系我们</a>
-	 </div>
-	 </div>
-	</li>
-	<li class="gl-item">
-	<div class="Borders">
-	 <div class="img"><a href="#"><img src="products/P_16.jpg" style="width:220px;height:220px"></a></div>
-	 <div class="Price"><b>¥89</b><span>[¥49.01/500g]</span></div>
-	 <div class="name"><a href="#">乐事 无限薯片三连装（原味+番茄+烤肉）104g*3/组</a></div>
-	 <div class="Shop_name"><a href="#">三只松鼠旗舰店</a></div>
-	 <div class="p-operate">
-	  <a href="#" class="p-o-btn Collect"><em></em>收藏</a>
-	  <a href="#" class="p-o-btn shop_cart"><em></em>联系我们</a>
-	 </div>
-	 </div>
-	</li>
-	<li class="gl-item">
-	<div class="Borders">
-	 <div class="img"><a href="#"><img src="products/P_17.jpg" style="width:220px;height:220px"></a></div>
-	 <div class="Price"><b>¥89</b><span>[¥49.01/500g]</span></div>
-	 <div class="name"><a href="#">乐事 无限薯片三连装（原味+番茄+烤肉）104g*3/组</a></div>
-	<div class="Shop_name"><a href="#">三只松鼠旗舰店</a></div>
-	 <div class="p-operate">
-	  <a href="#" class="p-o-btn Collect"><em></em>收藏</a>
-	  <a href="#" class="p-o-btn shop_cart"><em></em>联系我们</a>
-	 </div>
-	 </div>
-	</li>
-	<li class="gl-item">
-	<div class="Borders">
-	 <div class="img"><a href="#"><img src="products/P_15.jpg" style="width:220px;height:220px"></a></div>
-	 <div class="Price"><b>¥89</b><span>[¥49.01/500g]</span></div>
-	 <div class="name"><a href="#">乐事 无限薯片三连装（原味+番茄+烤肉）104g*3/组</a></div>
-	 <div class="Shop_name"><a href="#">三只松鼠旗舰店</a></div>
-	 <div class="p-operate">
-	  <a href="#" class="p-o-btn Collect"><em></em>收藏</a>
-	  <a href="#" class="p-o-btn shop_cart"><em></em>联系我们</a>
-	 </div>
-	 </div>
-	</li>
+	@endforeach
    </ul>
    <div class="Paging">
     <div class="Pagination">

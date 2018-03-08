@@ -31,8 +31,10 @@ Route::group(['namespace'=>'Home'],function(){
 		return view('Home.Page.not_found');
 	});
 	Route::get('/home/index','IndexController@index');
-	Route::get('/home/goods/viewinfo','GoodsController@viewinfo');
-	Route::get('/home/goods/index','GoodsController@index');
+	Route::get('/home/goods/viewinfo/{id}','GoodsController@viewinfo');
+	Route::get('/home/goods/index/{id}','GoodsController@index');
+	Route::get('/home/goods/purchase/{id}','GoodsController@purchase');
+	Route::get('/home/cart/index','CartController@index');
 });
 
 //后台路由

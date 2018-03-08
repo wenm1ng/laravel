@@ -37,4 +37,20 @@
         $object =  json_decode( json_encode( $object),true);
         return $object;
     }
+
+    //判断数组是几维数组
+    function getmaxdim($vDim)
+    {
+      if(!is_array($vDim)) return 0;
+      else
+      {
+        $max1 = 0;
+        foreach($vDim as $item1)
+        {
+         $t1 = getmaxdim($item1);
+         if( $t1 > $max1) $max1 = $t1;
+        }
+        return $max1 + 1;
+      }
+    }
  ?>

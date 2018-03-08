@@ -3,7 +3,7 @@
 <link href="/css/base.css" rel="stylesheet" type="text/css" />
 <link href="/css/css.css" rel="stylesheet" type="text/css" />
 <link href="/css/style1.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="/js/jquery-1.8.3.min.js"></script>
+<!-- <script type="text/javascript" src="/js/jquery-1.8.3.min.js"></script> -->
 <script src="/js/jquery.simpleGal.js"></script>
 <script type="text/javascript" src="/js/jquery.imagezoom.min.js"></script>
 <style>
@@ -158,24 +158,26 @@ document.getElementById(bg_div).style.display='none';
                 </tr>
             </table>
         </div>
+
+        <!--商品详情展示-->
         <div class=" clear bread"><a href="#">首页</a> <span class="pipe">&gt;</span> <a href="#">某供应商</a> <span class="pipe">&gt;</span> <a href="#">某产品</a></div>
 </div>
     <div class="pro_detail" >
         <div class="pro_detail_img float-lt">
             <div class="gallery">
-                <div class="tb-booth tb-pic tb-s310"> <a href="images/01.jpg"><img src="images/01_mid.jpg"  alt="展品细节展示放大镜特效" rel="images/01.jpg" class="jqzoom" /></a> </div>
+                <div class="tb-booth tb-pic tb-s310"> <a href="{{$goods_info->goods_img1}}"><img src="{{$goods_info->goods_img1}}"  alt="展品细节展示放大镜特效" rel="{{$goods_info->goods_img1}}" class="jqzoom" /></a> </div>
                 <ul class="tb-thumb" id="thumblist">
                     <li class="tb-selected">
-                        <div class="tb-pic tb-s40"><a href="#"><img src="images/01_small.jpg" mid="images/01_mid.jpg" big="images/01.jpg"></a></div>
+                        <div class="tb-pic tb-s40"><a href="#"><img src="{{$goods_info->goods_img1}}" mid="{{$goods_info->goods_img1}}" big="{{$goods_info->goods_img1}}"></a></div>
                     </li>
                     <li>
-                        <div class="tb-pic tb-s40"><a href="#"><img  src="images/02_small.jpg"  mid="images/02_mid.jpg" big="images/02.jpg"></a></div>
+                        <div class="tb-pic tb-s40"><a href="#"><img  src="{{$goods_info->goods_img2}}"  mid="{{$goods_info->goods_img2}}" big="{{$goods_info->goods_img2}}"></a></div>
                     </li>
                     <li>
-                        <div class="tb-pic tb-s40"><a href="#"><img src="images/03_small.jpg"  mid="images/03_mid.jpg" big="images/03.jpg"></a></div>
+                        <div class="tb-pic tb-s40"><a href="#"><img src="{{$goods_info->goods_img3}}"  mid="{{$goods_info->goods_img3}}" big="{{$goods_info->goods_img3}}"></a></div>
                     </li>
                     <li style="margin-right:0px;">
-                        <div class="tb-pic tb-s40"><a href="#"><img src="images/04_small.jpg"  mid="images/04_mid.jpg" big="images/04.jpg"></a></div>
+                        <div class="tb-pic tb-s40"><a href="#"><img src="{{$goods_info->goods_img4}}"  mid="{{$goods_info->goods_img4}}" big="{{$goods_info->goods_img4}}"></a></div>
                     </li>
                 </ul>
             </div>
@@ -207,16 +209,16 @@ document.getElementById(bg_div).style.display='none';
                 </ul>
             </div>
             <div class="clear"></div>
-            <div class="pro_detail_price  margin-t20"><span class="margin-r20">市场价</span><span style=" font-size:16px"><s>￥450.00</s></span></div>
+            <div class="pro_detail_price  margin-t20"><span class="margin-r20">市场价</span><span style=" font-size:16px"><s>￥{{$goods_info->goods_price}}</s></span></div>
             <div class="clear"></div>
-            <div class="pro_detail_act margin-t20 fl"><span class="margin-r20">售价</span><span style="font-size:26px; font-weight:bold; color:#dd514c;">￥400.00</span></div>
+            <div class="pro_detail_act margin-t20 fl"><span class="margin-r20">售价</span><span style="font-size:26px; font-weight:bold; color:#dd514c;">￥{{$goods_info->goods_price}}</span></div>
             <div class="clear"></div>
             <div class="act_block margin-t5"><span>本商品可使用9999积分抵用￥9.99元</span></div>
             <div class="pro_detail_number margin-t30">
                 <div class="margin-r20 float-lt">数量</div>
                 <div class=""> <i class="jian"></i>
                     <input type="text" value="1" class="float-lt choose_input"/>
-                    <i class="jia"></i> <span>&nbsp;盒</span> <span>（库存000盒）</span> </div>
+                    <i class="jia"></i> <span>&nbsp;件</span> <span>（库存{{$goods_info->goods_num}}件）</span> </div>
                 <div class="clear"></div>
             </div>
             <div class="guige">
@@ -235,7 +237,7 @@ document.getElementById(bg_div).style.display='none';
             <div class="clear"></div>
             <div class="pro_detail_btn margin-t30">
                 <ul>
-                    <li class="pro_detail_shop"><a href="pay1.html">立即购买</a></li>
+                    <li class="pro_detail_shop"><a href="/home/goods/purchase/{{$goods_info->goods_id}}">立即购买</a></li>
                     <li class="pro_detail_add"><a href="#" onclick="ShowDiv('MyDiv','fade')">加入我的货仓</a></li>
                 </ul>
             </div>
@@ -433,6 +435,31 @@ document.getElementById(bg_div).style.display='none';
 </div>
 
 <div class="clear">&nbsp;</div>
+<!--弹出层时背景层DIV--> 
+
+<!--商品添加成功DIV-->
+<div id="fade" class="black_overlay"> </div>
+<div id="MyDiv" class="white_content">
+    <div  style="width:385px; height:30px; background:#1ba67f; padding-left:15px; color:#fff; line-height:30px; font-size:14px;"> <span onclick="CloseDiv('MyDiv','fade')">
+        <input type="button" class="addbtn">
+        </span>商品加入货仓 </div>
+    <div class="dialogbox">
+        <p>商品添加成功！</p>
+    </div>
+</div>
+</div>
+
+<!--商品收藏成功DIV-->
+<div id="fade2" class="black_overlay"> </div>
+<div id="MyDiv2" class="white_content">
+    <div  style="width:385px; height:30px; background:#1ba67f; padding-left:15px; color:#fff; line-height:30px; font-size:14px;"> <span onclick="CloseDiv('MyDiv2','fade2')">
+        <input type="button" class="addbtn">
+        </span>商品收藏 </div>
+    <div class="dialogbox">
+        <p>商品收藏成功！</p>
+    </div>
+</div>
+</div>
 @endsection
 @section('footscript')
 <script type="text/javascript">
