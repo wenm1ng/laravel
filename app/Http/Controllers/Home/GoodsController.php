@@ -39,32 +39,40 @@
 			$goods_info = DB::table("goods")->where("goods_id",'=',$id)->first();
 			$goods_info = obj_to_array($goods_info);
 			// print_r($goods_info);exit;
+			// Cookie::queue(cookie('cart_info_'.$id,serialize($goods_info)));
+			// Cookie::forever('cart_info_'.$id,serialize($goods_info));
+			setcookie('cart_info_'.$id,serialize($goods_info),time()+9999999,'/',$_SERVER['HTTP_HOST']);
+
+
+			// print_r($goods_info);exit;
 			// Route::get('cookieset',function(){
 			// 	$cookie_cart = Cookie::forever('cart','nihao');
 			// 	return Response::make()->withCookie($cookie_cart);
 			// })
 			// Cookie::queue(Cookie::forget('cart'));
-			// setcookie('cart','',-1,'/');
 			// Cookie::forget('cart');
 			//获取原来的购物车cookie
+			// if(isset($_COOKIE['cartt'])){
+			// 	$cookie_cart = $_COOKIE['cartt'];
+			// }else{
+			// 	$cookie_cart = array();
+			// }
 
-			$cookie_cart = $request->cookie('cart');
 			// print_r($cookie_cart);exit;
-			$cart_arr = array();
-			if(empty($cookie_cart)){
-				$cart_arr[] = $goods_info;
-			}else{
-				//将商品信息追加到cookie
-				$cart_arr = $cookie_cart;
-				$cart_arr[] = $goods_info;
-			}
+			
 			//将商品信息存入cookie
-			// print_r($cart_arr);exit;
-			$response = new Response();
-			$cookie = cookie('cart',$cart_arr);
+			// print_r($cart_arr);echo '******************';exit;
+			// Cookie::queue(Cookie::forget('cart'));
+				// $cookie_cart = serialize($cart_arr);
+				// setcookie('cartt',$cookie_cart,time()+999999999,'/',$_SERVER['HTTP_HOST']);
+			// Cookie::queue(cookie('cart',$cart_arr));
+			// setcookie('cart1',serialize($cart_arr));
+
+			// $response = new Response();
+			// $cookie = cookie('cart',$cart_arr);
 			// $response->withCookie($cookie);
 
-			print_r(Cookie::get('cart'));exit;
+			// print_r($_COOKIE);exit;
 			return redirect('/home/cart/index');
 		}
 
