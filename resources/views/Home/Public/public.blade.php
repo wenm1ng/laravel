@@ -2,15 +2,20 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta charset="utf-8" name="csrf_token" content="{{ csrf_token() }}">
 <link href="/css/common.css" rel="stylesheet" type="text/css" />
 <link href="/css/style.css" rel="stylesheet" type="text/css" />
 <link href="/skins/all.css" rel="stylesheet" type="text/css" />
+<link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<!-- <script src="/js/bootstrap.js" type="text/javascript"></script> -->
 <script src="/js/jquery-1.8.3.min.js" type="text/javascript"></script>
+<!-- <script src="/js/jquery-2.1.1.min.js" type="text/javascript"></script> -->
 <script src="/js/jquery.SuperSlide.2.1.1.js" type="text/javascript"></script>
 <script src="/js/common_js.js" type="text/javascript"></script>
 <script src="/js/footer.js" type="text/javascript"></script>
 <script src="/js/iCheck.js" type="text/javascript"></script>
 <script src="/js/custom.js" type="text/javascript"></script>
+<script src="/js/bootstrap.min.js" type="text/javascript"></script>
 
 @yield('headscript')
 
@@ -22,14 +27,20 @@
  <div id="header_top">
   <div id="top">
     <div class="Inside_pages">
-      <div class="Collection"><a href="#" class="green">请登录</a> <a href="#" class="green">免费注册</a></div>
+      <div class="Collection">
+        @if(Session::get('user_info'))
+        你好，<a href="#" class="green">{{session('user_info')->user_name}}</a> <a href="/home/user/logout" class="green">退出</a>
+        @else
+        <a href="/home/user/login" class="green">请登录</a> <a href="/home/user/register" class="green">免费注册</a>
+        @endif
+      </div>
 	<div class="hd_top_manu clearfix">
 	  <ul class="clearfix">
-	   <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">首页</a></li> 
+	   <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="/home/index">首页</a></li> 
 	   <li class="hd_menu_tit" data-addclass="hd_menu_hover"> <a href="#">我的小充</a> </li>
 	   <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">消息中心</a></li>
        <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">商品分类</a></li>
-        <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">我的购物车<b>(23)</b></a></li>	
+        <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="/home/cart/index">我的购物车<b>(23)</b></a></li>	
 	  </ul>
 	</div>
     </div>
@@ -52,7 +63,7 @@
 </div>
  <!--购物车样式-->
  <div class="hd_Shopping_list" id="Shopping_list">
-   <div class="s_cart"><a href="#">我的购物车</a> <i class="ci-right">&gt;</i><i class="ci-count" id="shopping-amount">0</i></div>
+   <div class="s_cart"><a href="/home/cart/index">我的购物车</a> <i class="ci-right">&gt;</i><i class="ci-count" id="shopping-amount">0</i></div>
    <div class="dorpdown-layer">
     <div class="spacer"></div>
 	 <!--<div class="prompt"></div><div class="nogoods"><b></b>购物车中还没有商品，赶紧选购吧！</div>-->

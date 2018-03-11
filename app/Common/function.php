@@ -53,4 +53,12 @@
         return $max1 + 1;
       }
     }
+
+    //返回一段随机数
+    function rand_string($number){
+        $string = '123456789abcdefghijklmnpqrstuvwxyzABCDEFGHIJKLMNPQRSTUVWXYZ';
+        $new_string = str_shuffle($string);
+
+        return substr($new_string,0,$number);
+    }
  ?>

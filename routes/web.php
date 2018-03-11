@@ -35,6 +35,8 @@ Route::group(['namespace'=>'Home'],function(){
 	Route::get('/home/goods/index/{id}','GoodsController@index');
 	Route::get('/home/goods/purchase/{id}','GoodsController@purchase');
 	Route::get('/home/cart/index','CartController@index');
+	Route::post('/home/cart/check_login','CartController@check_login');
+	Route::post('/home/cart/login','CartController@login');
 });
 
 //后台路由

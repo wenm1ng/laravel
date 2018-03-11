@@ -38,10 +38,33 @@
 		public function purchase(Request $request,$id){
 			$goods_info = DB::table("goods")->where("goods_id",'=',$id)->first();
 			$goods_info = obj_to_array($goods_info);
+			$goods_info['count'] = 1;
 			// print_r($goods_info);exit;
 			// Cookie::queue(cookie('cart_info_'.$id,serialize($goods_info)));
 			// Cookie::forever('cart_info_'.$id,serialize($goods_info));
-			setcookie('cart_info_'.$id,serialize($goods_info),time()+9999999,'/',$_SERVER['HTTP_HOST']);
+			//判断是否登录，登录将商品信息存入redis，没有登录存入cookie
+			if($request->session()->has('user_info')){
+				$cart_info = unserialize(RedisDB::get('cart_'.session('user_info')->user_id))?:array();
+
+				if(isset($cart_info[$id])){
+					$cart_info[$id]['count']++;
+				}else{
+					$cart_info[$id] = $goods_info;
+					$cart_info[$id]['count'] = 1;
+				}
+
+				RedisDB::set('cart_'.session('user_info')->user_id,serialize($cart_info));
+			}else{
+				if(isset($_COOKIE['cart_info_'.$id])){
+					// print_r($_COOKIE['cart_info_'.$id]);exit;
+					$cookie = unserialize($_COOKIE['cart_info_'.$id]);
+					$cookie['count']++;
+					// print_r($cookie);exit;
+					setcookie('cart_info_'.$id,serialize($cookie),time()+9999999,'/',$_SERVER['HTTP_HOST']);
+				}else{
+					setcookie('cart_info_'.$id,serialize($goods_info),time()+9999999,'/',$_SERVER['HTTP_HOST']);
+				}
+			}
 
 
 			// print_r($goods_info);exit;
